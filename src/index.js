@@ -1,12 +1,11 @@
-const fs = require('fs');
-const path = require('path');
-
-//const absolutePath = require ('absolutePath')
+import fs from 'fs';
+import path from 'path';
 
 let userRoute = '/home/maga/Desktop/Example/';
 
+
 //convert relative routes in absolutes routes return string
-export const absolutePath = (route) => {
+const absolutePath = (route) => {
   if (!path.isAbsolute(route)) {
     return path.resolve(route);
   } else {
@@ -16,14 +15,14 @@ export const absolutePath = (route) => {
 //absolutePath(userRoute)
 
 //verify file and return boolean
-export const verifyFile = (route) => {
+const verifyFile = (route) => {
   let getStat = fs.statSync(route);
   let isFile = getStat.isFile();
   return isFile;
 }
 
 //read Directories return Array files
-export const getMarkdownFiles = (route) => {
+const getMarkdownFiles = (route) => {
   if (verifyFile(path.join(route))) {
     return path.extname(route) === ".md" ? route : [];
   } else {
@@ -39,7 +38,7 @@ export const getMarkdownFiles = (route) => {
 //getMarkdownFiles(absolutePath(userRoute));
 
 //flatten array 
-export const flatten = (arr) => {
+const flatten = (arr) => {
   let ret = [];
   for (let i = 0; i < arr.length; i++) {
     if (Array.isArray(arr[i])) {
@@ -51,7 +50,7 @@ export const flatten = (arr) => {
   return ret;
 }
 
-// uglyArr = getMarkdownFiles(absolutePath(userRoute));
-// let aplanau = flatten(uglyArr);
-// console.log('Ass: ', aplanau)
+const uglyArr = getMarkdownFiles(absolutePath(userRoute));
+let aplanau = flatten(uglyArr);
+console.log('Ass: ', aplanau);
 
