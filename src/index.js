@@ -5,7 +5,7 @@ const path = require('path');
 
 let userRoute = '/home/maga/Desktop/Example/';
 
-//convert relative routes in absolutes routes
+//convert relative routes in absolutes routes return string
 export const absolutePath = (route) => {
   if (!path.isAbsolute(route)) {
     return path.resolve(route);
@@ -13,7 +13,7 @@ export const absolutePath = (route) => {
     return route;
   }
 };
-absolutePath(userRoute)
+//absolutePath(userRoute)
 
 //verify file and return boolean
 export const verifyFile = (route) => {
@@ -51,7 +51,7 @@ export const flatten = (arr) => {
   return ret;
 }
 
-uglyArr = getMarkdownFiles(absolutePath(userRoute));
-let aplanau = flatten(uglyArr);
-console.log('Ass: ', aplanau)
+// uglyArr = getMarkdownFiles(absolutePath(userRoute));
+// let aplanau = flatten(uglyArr);
+// console.log('Ass: ', aplanau)
 
