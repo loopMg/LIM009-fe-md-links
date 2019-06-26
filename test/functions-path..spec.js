@@ -2,7 +2,7 @@ import {absolutePath,
         verifyFile,
         getMarkdownFiles,
         flatten
-        } from '../src/index.js'
+        } from '../src/controller/path.js/index.js.js'
 
 let relativeRoute = 'Example/';
 let absoluteRoute = '/home/maga/Desktop/LIM009-fe-md-links/Example';

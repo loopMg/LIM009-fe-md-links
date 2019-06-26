@@ -1,56 +1,47 @@
-import fs from 'fs';
-import path from 'path';
+import {
+  absolutePath,
+  getMarkdownFiles,
+  flatten
+} from "./controller/path";
+import {
+  extractLinks
+} from "./controller/links";
+import {
+  //checkStatus,
+  validateLinks
+} from './controller/http.js'
+import fetch from 'node-fetch'
 
+//Ruta de prueba
 let userRoute = '/home/maga/Desktop/Example/';
+let userRouteTwo = 'example.md';
 
 
-//convert relative routes in absolutes routes return string
-const absolutePath = (route) => {
-  if (!path.isAbsolute(route)) {
-    return path.resolve(route);
-  } else {
-    return route;
-  }
-};
-//absolutePath(userRoute)
+const mdLinks = (path, options) => {
+  return new Promise((resolve, reject) => {
+    if (path) {
+      let arrMds = flatten(getMarkdownFiles(absolutePath(path)));
+      let arr = []
+      arrMds.forEach((pathFile) => {
+        let links = extractLinks(pathFile)
+        arr.push(links)
+      });
+      let arrayLinks = flatten(arr);
+      //resolve(arrayLinks)
+      
+      validateLinks(arrayLinks)
+        //.then(resolve)
 
-//verify file and return boolean
-const verifyFile = (route) => {
-  let getStat = fs.statSync(route);
-  let isFile = getStat.isFile();
-  return isFile;
-}
-
-//read Directories return Array files
-const getMarkdownFiles = (route) => {
-  if (verifyFile(path.join(route))) {
-    return path.extname(route) === ".md" ? route : [];
-  } else {
-    //console.log(route)
-    const readDir = fs.readdirSync(path.join(route));
-    return readDir.map(routeName => {
-      //console.log("mundos_", routeName)
-      const filesArray = getMarkdownFiles(path.join(route, routeName))
-      return filesArray
-    })
-  }
-}
-//getMarkdownFiles(absolutePath(userRoute));
-
-//flatten array 
-const flatten = (arr) => {
-  let ret = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (Array.isArray(arr[i])) {
-      ret = ret.concat(flatten(arr[i]));
     } else {
-      ret.push(arr[i]);
+      reject('Bad path');
     }
-  }
-  return ret;
+  });
 }
 
-const uglyArr = getMarkdownFiles(absolutePath(userRoute));
-let aplanau = flatten(uglyArr);
-console.log('Ass: ', aplanau);
-
+mdLinks(userRoute)
+  // .then(links => {
+  //   console.log(links)
+  // })
+  // .catch((error) => {
+  //   console.log('Bad path', error)
+  // })
