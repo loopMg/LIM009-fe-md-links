@@ -10,39 +10,33 @@ import {
 	validateLinks
 } from './controller/validate.js'
 
+// import {
+// 	becomeObjet,
+// 	args
+// } from './cli.js'
 
-//Ruta de prueba
-let userRoute = '/home/maga/Desktop/Example/';
-// let userRouteTwo = 'example.md';
 
 
-const mdLinks = (path, options) => {
+export const mdLinks = (path, options) => {
 	return new Promise((resolve, reject) => {
-		if (path) 
-		{
-			let arrMds = flatten(getMarkdownFiles(absolutePath(path)));
-			let arr = []
-			arrMds.forEach((pathFile) => {
-				let links = extractLinks(pathFile)
-				arr.push(links)
-			});
-			let arrayLinks = flatten(arr);
-			//resolve(arrayLinks)
+		let arrMds = flatten(getMarkdownFiles(absolutePath(path)));
+		let arr = []
 
+		arrMds.forEach((pathFile) => {
+			let links = extractLinks(pathFile)
+			arr.push(links)
+		});
+
+		let arrayLinks = flatten(arr);
+
+		if (options && options.validate === false) {
+			resolve(arrayLinks)
+
+		} else if (options && options.validate === true) {
 			validateLinks(arrayLinks)
 				.then(resolve)
-		} 
-		else 
-		{
-			reject('Bad path');
+		} else {
+			reject(console.log('Error'));
 		}
 	});
 }
-
-mdLinks(userRoute)
-	.then(links => {
-		console.log(links)
-	})
-	.catch((error) => {
-		return error;
-	})

@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 
 
-//validate array of object with Links 
+//validate array of objet with Links 
 export const validateLinks = (arrayLinks) => {
 	const arrayPromesas = arrayLinks.map(link => {
 		return fetch(link.href)
@@ -29,7 +29,7 @@ export const validateLinks = (arrayLinks) => {
 					ref: link.href,
 					text: link.text,
 					path: link.path,
-					status: 500,
+					status: undefined,
 					statusText: 'Fail'
 				}
 			});
