@@ -1,19 +1,25 @@
-import {
-	mdLinks
-} from '../index.js'
+export const stats = (arrayObjLinks) => {
+	const array = arrayObjLinks.length;
+	const allArray = `Total: ${array}`;
+	console.log(allArray);
 
+	let mySet = new Set();
 
-const path = '/home/maga/Desktop/Example'
-const options = { validate: false, stats : true }; 
+	arrayObjLinks.forEach((element)=> {
+		if(!mySet.has(element.href))
+		{
+			return mySet.add(element.href)
+		}
+		else 
+		{
+			return true
+		}
+	})
+	const myarray = Array.from(mySet);
+	const uniqueLinks = myarray.length;
+	const uniqueArray = `Unique: ${uniqueLinks}`;
+	console.log(uniqueArray);
+}
 
-
-
-const stats = (path, options) => {
-	let arrayObjinfo = mdLinks(path, options).then(res => {let numberlinks = res.length
-	console.log(`Total: ${numberlinks}`)});
-	
-	return arrayObjinfo
-};
-
-stats(path, options);
+stats(arrayObjLinks);
 

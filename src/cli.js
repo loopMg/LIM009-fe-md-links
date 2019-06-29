@@ -1,15 +1,13 @@
 #!/usr/bin/env node
+import { stats } from '../src/controller/stats.js';
+import { mdLinks } from './index.js';
 
-import {
-	mdLinks
-} from './index.js'
 
 export const [, , ... args] = process.argv
-
 const path = args[0];
 const options = args.slice(1);
 
-
+// return { validate : true , stast : true };
 export const  becomeObjet = (arrayOp) => {
 let validate = false;
 let stats = false;
@@ -32,14 +30,23 @@ let stats = false;
 const objet = becomeObjet(options)
 
 const cli = (path, objet) => {
-	console.log(path);
-	if(path !== 0)
-	{
-		console.log( objet)
-		return mdLinks(path, objet)
-			   	.then(links => console.log(links))
-			   	.catch(error => console.log('El Archivo o directorio no existe'));
-	}
+
+
+
+
+
+
+
+
+
+	// console.log(path);
+	// if(path !== 0)
+	// {
+	// 	console.log( objet)
+	// 	return mdLinks(path, objet)
+	// 		   	.then(links => console.log(links))
+	// 		   	.catch(error => console.log('El Archivo o directorio no existe'));
+	// }
 }
 
 cli(path, objet);
