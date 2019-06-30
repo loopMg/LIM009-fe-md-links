@@ -10,12 +10,6 @@ import {
 	validateLinks
 } from './controller/validate.js'
 
-// import {
-// 	becomeObjet,
-// 	args
-// } from './cli.js'
-
-
 
 export const mdLinks = (path, options) => {
 	return new Promise((resolve, reject) => {

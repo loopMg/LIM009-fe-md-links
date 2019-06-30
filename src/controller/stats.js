@@ -1,8 +1,7 @@
-export const stats = (arrayObjLinks) => {
-	const array = arrayObjLinks.length;
-	const allArray = `Total: ${array}`;
-	console.log(allArray);
 
+
+export const statsLinks = (arrayObjLinks) => {
+		
 	let mySet = new Set();
 
 	arrayObjLinks.forEach((element)=> {
@@ -15,11 +14,29 @@ export const stats = (arrayObjLinks) => {
 			return true
 		}
 	})
+	const array = arrayObjLinks.length;
+	const allArray = `Total: ${array}`;
 	const myarray = Array.from(mySet);
 	const uniqueLinks = myarray.length;
 	const uniqueArray = `Unique: ${uniqueLinks}`;
-	console.log(uniqueArray);
+
+	let result = `${allArray} \n${uniqueArray}`
+	return result
 }
 
-stats(arrayObjLinks);
 
+
+
+
+
+export const statsValidate = (arrayObjLinks) => {
+	let brokens = [];
+	arrayObjLinks.forEach((element) => {
+		 if(element.statusText !== 'OK') 
+		{
+		 brokens.push(element);
+		}
+	})
+	let totalBrokens = brokens.length;
+	return totalBrokens
+}
