@@ -19,7 +19,7 @@
   "author": "maga lopez",
   "license": "ISC",
   "bin": {
-    "say-hello": "lib/cli.js"
+    "md-links": "lib/cli.js"
   },
   "bugs": {
     "url": "https://github.com/loopMg/LIM009-fe-md-links/issues"
