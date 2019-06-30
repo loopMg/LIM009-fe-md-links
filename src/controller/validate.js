@@ -8,7 +8,7 @@ export const validateLinks = (arrayLinks) => {
 			.then((res) => {
 				if (res.ok) {
 					return {
-						ref: link.href,
+						href: link.href,
 						text: link.text,
 						path: link.path,
 						status: res.status,
@@ -16,7 +16,7 @@ export const validateLinks = (arrayLinks) => {
 					};
 				} else {
 					return {
-						ref: link.href,
+						href: link.href,
 						text: link.text,
 						path: link.path,
 						status: res.status,
@@ -26,7 +26,7 @@ export const validateLinks = (arrayLinks) => {
 			})
 			.catch(() => {
 				return {
-					ref: link.href,
+					href: link.href,
 					text: link.text,
 					path: link.path,
 					status: undefined,

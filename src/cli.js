@@ -1,15 +1,10 @@
 #!/usr/bin/env node
 import { statsLinks , statsValidate } from '../lib/controller/stats.js';
 import { mdLinks } from './index.js';
-import { link } from 'fs';
-
 
 export const [, , ...args] = process.argv
 const path = args[0];
 const options = args.slice(1);
-
-// console.log(path);
-// console.log(options);
 
 // this function return object => { validate : true , stast : true };
 export const becomeObjet = (arrayOp) => {
@@ -42,8 +37,8 @@ const cli = (path, objet) => {
 		.then(links => {
 			let statsOK = statsLinks(links);
 			let broken = statsValidate(links);
-			console.log(`Brokens: ${broken}`);
 			console.log(`${statsOK}`);
+			console.log(`${broken}`);
 		})
 	}
 	if(path && objet.stats)
@@ -57,20 +52,13 @@ const cli = (path, objet) => {
 	else
 	{
 		return mdLinks(path, objet)
-		.then(links => {console.log(links)})
-		.catch(error => console.log(`File or Directory it dasen't exist! ${error}`));
-	}
-			// .catch(error => console.log(`File or Directory it dasen't exist! ${error}`));
-		// return statsLinks()
-	}
-//console.log(path);
-	// if(path !== 0)
-	// {
-	// 	console.log( objet)
-	// 	return mdLinks(path, objet)
-	// 		   	.then(links => console.log(links))
-	// 		   	.catch(error => console.log('El Archivo o directorio no existe'));
-	// }
-//}
+		.then(links => {
+			links.forEach((element) => {
+				console.log(`${element.path} ${element.href} ${element.status} ${element.statusText}`);
+			})
+		//.catch(error => console.log(`File or Directory it dasen't exist! ${error}`));
+	})
+}	
+}
 
-cli(path, objet);
+cli(path, objet)

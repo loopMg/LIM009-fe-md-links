@@ -15,7 +15,6 @@ export const mdLinks = (path, options) => {
 	return new Promise((resolve, reject) => {
 		let arrMds = flatten(getMarkdownFiles(absolutePath(path)));
 		let arr = []
-
 		arrMds.forEach((pathFile) => {
 			let links = extractLinks(pathFile)
 			arr.push(links)
@@ -34,3 +33,8 @@ export const mdLinks = (path, options) => {
 		}
 	});
 }
+
+// Test of require
+// mdLinks('/home/maga/Desktop/Example/', { validate : false })
+// .then(links => console.log(links))
+// .catch(error => console.log(error))

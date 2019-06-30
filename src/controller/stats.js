@@ -1,5 +1,3 @@
-
-
 export const statsLinks = (arrayObjLinks) => {
 		
 	let mySet = new Set();
@@ -15,19 +13,14 @@ export const statsLinks = (arrayObjLinks) => {
 		}
 	})
 	const array = arrayObjLinks.length;
-	const allArray = `Total: ${array}`;
+	const allLinks = `Total: ${array}`;
 	const myarray = Array.from(mySet);
-	const uniqueLinks = myarray.length;
-	const uniqueArray = `Unique: ${uniqueLinks}`;
+	const uniqueArray = myarray.length;
+	const uniqueLinks = `Unique: ${uniqueArray}`;
 
-	let result = `${allArray} \n${uniqueArray}`
+	let result = `${allLinks} \n${uniqueLinks}`
 	return result
 }
-
-
-
-
-
 
 export const statsValidate = (arrayObjLinks) => {
 	let brokens = [];
@@ -37,6 +30,7 @@ export const statsValidate = (arrayObjLinks) => {
 		 brokens.push(element);
 		}
 	})
-	let totalBrokens = brokens.length;
-	return totalBrokens
+	let brokensArray = brokens.length;
+	let brokensLinks = `Brokens: ${brokensArray}`;
+	return brokensLinks
 }
