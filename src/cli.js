@@ -53,11 +53,21 @@ const cli = (path, objet) => {
 	{
 		return mdLinks(path, objet)
 		.then(links => {
+			if(!objet.validate) 
+			{
+				links.forEach((element) => {
+				console.log(`${element.path} ${element.href}`); 
+			});
+			}
+			else 
+			{
 			links.forEach((element) => {
 				console.log(`${element.path} ${element.href} ${element.status} ${element.statusText}`);
-			})
+				})
+			}
+		})
 		//.catch(error => console.log(`File or Directory it dasen't exist! ${error}`));
-	})
+	//})
 }	
 }
 
