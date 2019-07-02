@@ -2,7 +2,7 @@ import {absolutePath,
         verifyFile,
         getMarkdownFiles,
         flatten
-        } from '../src/controller/path.js/index.js.js'
+        } from '../src/controller/path.js/'
 
 let relativeRoute = 'Example/';
 let absoluteRoute = '/home/maga/Desktop/LIM009-fe-md-links/Example';
@@ -37,7 +37,8 @@ describe('get markdown files', () => {
     expect(typeof(getMarkdownFiles)).toBe('function');
   })
   it('should return array', () => {
-    expect(getMarkdownFiles(path)).toEqual([[[], "/home/maga/Desktop/LIM009-fe-md-links/test/Example/Test/test.md"], "/home/maga/Desktop/LIM009-fe-md-links/test/Example/example.md", "/home/maga/Desktop/LIM009-fe-md-links/test/Example/file.md"]);
+    expect(getMarkdownFiles(path)).toEqual([["/home/maga/Desktop/LIM009-fe-md-links/test/Example/Test/test.md"], [], "/home/maga/Desktop/LIM009-fe-md-links/test/Example/file.md"]
+    );
   })
 })
 

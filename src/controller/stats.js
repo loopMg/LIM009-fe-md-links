@@ -7,10 +7,10 @@ export const statsLinks = (arrayObjLinks) => {
 		{
 			return mySet.add(element.href)
 		}
-		else 
-		{
-			return true
-		}
+		// else 
+		// {
+		// 	return true
+		// }
 	})
 	const array = arrayObjLinks.length;
 	const allLinks = `Total: ${array}`;

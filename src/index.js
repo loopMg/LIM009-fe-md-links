@@ -29,12 +29,12 @@ export const mdLinks = (path, options) => {
 			validateLinks(arrayLinks)
 				.then(resolve)
 		} else {
-			reject(console.log('Error'));
+		reject(console.log('Error'));
 		}
 	});
 }
 
 // Test of require
-// mdLinks('/home/maga/Desktop/Example/', { validate : false })
+// mdLinks('/home/maga/Desktop/Example/', { validate : true })
 // .then(links => console.log(links))
 // .catch(error => console.log(error))

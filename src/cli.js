@@ -30,7 +30,7 @@ export const becomeObjet = (arrayOp) => {
 const objet = becomeObjet(options)
 
 
-const cli = (path, objet) => {
+export const cli = (path, objet) => {
 	if(path && objet.validate && objet.stats)
 	{
 		return mdLinks(path, objet)

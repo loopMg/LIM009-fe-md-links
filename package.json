@@ -1,5 +1,5 @@
 {
-  "name": "lim009-fe-md-links",
+  "name": "magalopez-md-links",
   "version": "1.0.0",
   "description": "read and analyze files in markdown format ",
   "main": "index.js",
@@ -38,6 +38,7 @@
     "babel-jest": "^23.6.0",
     "eslint": "^5.10.0",
     "eslint-plugin-jest": "^22.1.2",
+    "fetch-mock": "^7.3.3",
     "jest": "^23.6.0"
   }
 }
