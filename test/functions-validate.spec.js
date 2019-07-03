@@ -3,7 +3,7 @@ import {
 } from '../src/controller/validate.js'
 
 import fetchMock from '../__mocks__/node-fetch.js'
-import { doesNotReject } from 'assert';
+//import { doesNotReject } from 'assert';
 fetchMock.config.sendAsJson = false;
 
 fetchMock

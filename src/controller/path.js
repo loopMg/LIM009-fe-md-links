@@ -24,7 +24,7 @@ export const verifyFile = (route) => {
 export const getMarkdownFiles = (route) => {
     if (verifyFile(path.join(route))) 
     {
-        return path.extname(route) === ".md" ? route : [];
+        return path.extname(route) === ".md" ? [route] : [];
     } 
     else 
     {

@@ -22,19 +22,14 @@ export const mdLinks = (path, options) => {
 
 		let arrayLinks = flatten(arr);
 
-		if (options && options.validate === false) {
+		if (!options || options.validate === false) {
 			resolve(arrayLinks)
 
 		} else if (options && options.validate === true) {
 			validateLinks(arrayLinks)
 				.then(resolve)
 		} else {
-		reject(console.log('Error'));
+			reject(new Error(''));
 		}
 	});
 }
-
-// Test of require
-// mdLinks('/home/maga/Desktop/Example/', { validate : true })
-// .then(links => console.log(links))
-// .catch(error => console.log(error))

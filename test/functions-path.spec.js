@@ -37,18 +37,17 @@ describe('get markdown files', () => {
     expect(typeof(getMarkdownFiles)).toBe('function');
   })
   it('should return array', () => {
-    expect(getMarkdownFiles(path)).toEqual([["/home/maga/Desktop/LIM009-fe-md-links/test/Example/Test/test.md"], [], "/home/maga/Desktop/LIM009-fe-md-links/test/Example/file.md"]
-    );
+    expect(getMarkdownFiles(path)).toEqual([[["/home/maga/Desktop/LIM009-fe-md-links/test/Example/Test/test.md"]], [], ["/home/maga/Desktop/LIM009-fe-md-links/test/Example/file.md"]]);
   })
 })
 
-let arrayPath = [[[], "/Example/Test/test.md"], "/Example/example.md", "/Example/file.md"];
+let arrayPath = [["/Example/Test/test.md"], [], "/Example/file.md"];
 
 describe('flatten arrays', () => {
   it('flatten is a function', () => {
     expect(typeof(flatten)).toBe('function');
   })
   it('should return flat array', () => {
-    expect(flatten(arrayPath)).toEqual(["/Example/Test/test.md","/Example/example.md","/Example/file.md"])
+    expect(flatten(arrayPath)).toEqual(["/Example/Test/test.md", "/Example/file.md"])
   })
 })

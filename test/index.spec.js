@@ -1,5 +1,11 @@
 import { mdLinks } from '../src/index.js'
 
+import fetchMock from '../__mocks__/node-fetch.js'
+fetchMock.config.sendAsJson = false;
+
+fetchMock
+  .mock('https://www.youtube.com/watch?v=MetC_lv2GNw', 200)
+
 
 const path = '/home/maga/Desktop/LIM009-fe-md-links/test/Example/';
 

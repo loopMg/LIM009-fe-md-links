@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">63.64% </span>
+        <span class="strong">59.46% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>21/33</span>
+        <span class='fraction'>22/37</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">73.33% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>11/15</span>
+        <span class='fraction'>9/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">37.5% </span>
+        <span class="strong">45.45% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/8</span>
+        <span class='fraction'>5/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">63.64% </span>
+        <span class="strong">59.46% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>21/33</span>
+        <span class='fraction'>22/37</span>
       </div>
     </div>
   </div>
@@ -116,7 +116,14 @@
 71
 72
 73
-74</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+74
+75
+76
+77
+78
+79
+80
+81</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,21 +156,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,22 +172,38 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">#!/usr/bin/env node
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">#!/usr/bin/env node
 import { statsLinks , statsValidate } from '../lib/controller/stats.js';
 import { mdLinks } from './index.js';
 &nbsp;
@@ -222,14 +236,15 @@ const objet = becomeObjet(options)
 &nbsp;
 &nbsp;
 export const cli = (path, objet) =&gt; {
-	if(path &amp;&amp; objet.validate &amp;&amp; objet.stats)
-	{
-		return mdLinks(path, objet)
+	<span class="missing-if-branch" title="if path not taken" >I</span>if(path &amp;&amp; objet.validate &amp;&amp; <span class="branch-2 cbranch-no" title="branch not covered" >objet.stats)</span>{
+<span class="cstat-no" title="statement not covered" >		return mdLinks(path, objet)</span>
 		.then(<span class="fstat-no" title="function not covered" >li</span>nks =&gt; {
 			let statsOK = <span class="cstat-no" title="statement not covered" >statsLinks(links);</span>
 			let broken = <span class="cstat-no" title="statement not covered" >statsValidate(links);</span>
-<span class="cstat-no" title="statement not covered" >			console.log(`${statsOK}`);</span>
-<span class="cstat-no" title="statement not covered" >			console.log(`${broken}`);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >			return `${statsOK} \n${broken}`</span>
+			// console.log(`${statsOK}`);
+			// console.log(`${broken}`);
 		})
 	}
 	<span class="missing-if-branch" title="if path not taken" >I</span>if(path &amp;&amp; objet.stats)
@@ -237,38 +252,44 @@ export const cli = (path, objet) =&gt; {
 <span class="cstat-no" title="statement not covered" >		return mdLinks(path, objet)</span>
 		.then(<span class="fstat-no" title="function not covered" >li</span>nks =&gt; {
 			let stats = <span class="cstat-no" title="statement not covered" >statsLinks(links);</span>
-<span class="cstat-no" title="statement not covered" >			console.log(`${stats}`);</span>
+			// console.log(`${stats}`);
+<span class="cstat-no" title="statement not covered" >			return `${stats}`</span>
 		})
-	}
-	else
-	{
+	}	else	{
 		return mdLinks(path, objet)
 		.then(<span class="fstat-no" title="function not covered" >li</span>nks =&gt; {
+			let string = <span class="cstat-no" title="statement not covered" >'';</span>
 <span class="cstat-no" title="statement not covered" >			if(!objet.validate) </span>
 			{
 <span class="cstat-no" title="statement not covered" >				links.forEach(<span class="fstat-no" title="function not covered" >(e</span>lement) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >				console.log(`${element.path} ${element.href}`); </span>
+				// console.log(`${element.path} ${element.href}`); 
+<span class="cstat-no" title="statement not covered" >				return string += `${element.path} ${element.href} \n`;</span>
+				
 			});
 			}
 			else 
 			{
 <span class="cstat-no" title="statement not covered" >			links.forEach(<span class="fstat-no" title="function not covered" >(e</span>lement) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >				console.log(`${element.path} ${element.href} ${element.status} ${element.statusText}`);</span>
+				// console.log(`${element.path} ${element.href} ${element.status} ${element.statusText}`);
+<span class="cstat-no" title="statement not covered" >				 return string += `${element.path} ${element.href} ${element.status} ${element.statusText} \n`;</span>
+				 
 				})
 			}
+<span class="cstat-no" title="statement not covered" >			return string;</span>
 		})
-		//.catch(error =&gt; console.log(`File or Directory it dasen't exist! ${error}`));
-	//})
-}	
+		.catch(error =&gt; console.log(`File or Directory it dasen't exist! ${error}`));
+	}	
 }
 &nbsp;
-cli(path, objet)</pre></td></tr>
+cli(path, objet)
+.then((res) =&gt; console.log(res))
+.catch(<span class="fstat-no" title="function not covered" >(e</span>rr) =&gt; <span class="cstat-no" title="statement not covered" >console.log(err))</span></pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Jul 02 2019 10:15:15 GMT-0500 (Peru Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Jul 03 2019 00:30:50 GMT-0500 (Peru Standard Time)
 </div>
 </div>
 <script src="../prettify.js"></script>
